@@ -82,18 +82,58 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
         </div>
 
-        {/* Modal Body / Image Viewer */}
-        <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-[#070912] min-h-[300px]">
-          <div
-            className="transition-transform duration-200 shadow-2xl rounded-xl overflow-hidden border border-white/10"
-            style={{ transform: `scale(${zoomLevel})` }}
-          >
-            <img
+        {/* Modal Body / Viewer */}
+        <div className="flex-1 overflow-auto p-6 flex items-center justify-center bg-[#070912] min-h-[340px]">
+          {PORTFOLIO_DATA.profile.resumeUrl.toLowerCase().endsWith(".docx") ? (
+            /* Word Document (.docx) Download & Preview Card */
+            <div className="max-w-md w-full p-8 rounded-2xl glass-panel border border-indigo-400/20 text-center flex flex-col items-center">
+              <div className="size-20 rounded-2xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-5 shadow-lg shadow-blue-500/10">
+                <FileText className="size-10" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">
+                Microsoft Word Resume
+              </h4>
+              <p className="text-xs text-slate-300 font-mono mb-6 max-w-xs">
+                {PORTFOLIO_DATA.profile.resumeFileName}
+              </p>
+              <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                This resume is formatted as a Word document (.docx). Click below to download and view in Microsoft Word, Google Docs, or LibreOffice.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 w-full justify-center">
+                <a
+                  href={PORTFOLIO_DATA.profile.resumeUrl}
+                  download={PORTFOLIO_DATA.profile.resumeFileName}
+                  onClick={() => playCyberClick()}
+                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 hover:from-blue-500 hover:to-sky-500 text-white font-semibold text-sm shadow-xl shadow-indigo-500/25 transition-all"
+                >
+                  <Download className="size-4" />
+                  <span>Download .docx File</span>
+                </a>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/[0.08] text-[11px] text-slate-400 font-mono">
+                💡 Tip: You can also export as PDF in Word (<code className="text-indigo-300">File &gt; Save As &gt; PDF</code>) for instant browser preview!
+              </div>
+            </div>
+          ) : PORTFOLIO_DATA.profile.resumeUrl.toLowerCase().endsWith(".pdf") ? (
+            /* PDF Viewer */
+            <iframe
               src={PORTFOLIO_DATA.profile.resumeUrl}
-              alt="Rudra Joshi Resume Preview"
-              className="max-h-[68vh] w-auto object-contain rounded-md"
+              title="Rudra Joshi Resume PDF"
+              className="w-full h-[70vh] rounded-xl border border-white/10"
             />
-          </div>
+          ) : (
+            /* Image Viewer (JPG / PNG) */
+            <div
+              className="transition-transform duration-200 shadow-2xl rounded-xl overflow-hidden border border-white/10"
+              style={{ transform: `scale(${zoomLevel})` }}
+            >
+              <img
+                src={PORTFOLIO_DATA.profile.resumeUrl}
+                alt="Rudra Joshi Resume Preview"
+                className="max-h-[68vh] w-auto object-contain rounded-md"
+              />
+            </div>
+          )}
         </div>
 
         {/* Modal Footer Note */}
