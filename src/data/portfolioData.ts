@@ -59,8 +59,8 @@ export const PORTFOLIO_DATA = {
     githubUsername: "Rudra-Joshi0509",
     linkedin: "https://www.linkedin.com/in/rudra-joshi0509",
     linkedinHandle: "rudra-joshi0509",
-    resumeFileName: "myresume(old).jpg",
-    resumeUrl: "/myresume(old).jpg",
+    resumeFileName: "myresume.docx",
+    resumeUrl: "./myresume.docx",
     avatarPlaceholder: "./profile.jpg",
     stats: {
       cgpa: "9.46",
