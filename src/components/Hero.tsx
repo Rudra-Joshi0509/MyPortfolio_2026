@@ -228,11 +228,6 @@ export default function Hero({ onOpenResume }: HeroProps) {
                     </div>
                   </div>
                 </div>
-
-                <div className="mt-4 pt-3.5 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400">
-                  <span>Easily replaceable with your photo URL</span>
-                  <span className="text-indigo-300 font-mono">portfolioData.ts</span>
-                </div>
               </div>
             </div>
 
