@@ -61,7 +61,7 @@ export const PORTFOLIO_DATA = {
     linkedinHandle: "rudra-joshi0509",
     resumeFileName: "myresume(old).jpg",
     resumeUrl: "/myresume(old).jpg",
-    avatarPlaceholder: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    avatarPlaceholder: "./profile.jpg",
     stats: {
       cgpa: "9.46",
       cgpaContext: "Sem 4 Academic Merit",
